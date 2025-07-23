@@ -4,7 +4,7 @@ const modulesModel = require('../models/modules');
 module.exports.create = function (req, res) {
     const code = req.body.code;
     const name = req.body.name;
-    const credit = req.body.credit;
+    const credit = parseInt(req.body.credit);
 
     return modulesModel
         .create(code, name, credit)
@@ -80,7 +80,7 @@ module.exports.updateByCode = function (req, res) {
     // You can decide where you want to put the Credit in the Request
     // Implement Update module by Code and the credit is in req.body
     const code = req.params.code;
-    const credit = req.body.credit;
+    const credit = parseInt(req.body.credit);
     return modulesModel
         .updateByCode(code, credit)
         .then(function () {
